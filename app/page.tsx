@@ -8,12 +8,12 @@ export default function Home() {
 
     <Carrousel />
 
-    <div className="bg-gray h-[150px] mx-40 content-center">
+    <div className="bg-gray h-[180px] mx-40 content-center">
 
       <h1 className="text-white font-bold text-4xl" style={{ letterSpacing: '0.0em' }}>
         Ofertas destacadas
       </h1>
-      <Separator className="mt-6 bg-[#4e4e4e]"/>
+      <Separator className="mt-6 bg-gray2"/>
 
     </div>
 
