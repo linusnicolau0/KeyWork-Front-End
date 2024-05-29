@@ -24,7 +24,8 @@ export function Carrousel() {
 
         const autoplay = setInterval(() => {
             nextSlide();
-        }, 4000);
+        //Aqui se puede cambiar el tiempo de cambio de imagen
+        }, 2500);
         
         return () => clearInterval(autoplay);
     

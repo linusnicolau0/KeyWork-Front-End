@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 export function Navbar() 
 {
     return (
-        <nav className="bg-black h-[100px] flex justify-center items-center px-6 py-4">
+        <nav className="bg-gray h-[100px] flex justify-center items-center px-6 py-4">
 
             {/*Boton para cambiar el tema de la web*/}
             <div className="mr-auto">
