@@ -15,6 +15,8 @@ export default function Home() {
       </h1>
       <Separator className="mt-6 bg-gray2"/>
 
+      <Separator className="mt-6 bg-gray2"/>
+
     </div>
 
     </>
