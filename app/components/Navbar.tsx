@@ -34,7 +34,7 @@ export function Navbar()
                 </Button>
 
                 {/*Boton de registro*/}
-                <Button className="bg-white mr-4 mt-1.5 hover:bg-[#b3b4b6] rounded-xl">
+                <Button className="bg-white mr-6 mt-1.5 hover:bg-[#b3b4b6] rounded-xl">
                     <h1 className="text-black">Registrarse</h1>
                 </Button>
 
