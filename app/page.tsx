@@ -55,10 +55,13 @@ export default function Home() {
         Ofertas destacadas
       </h1>
       <Separator className="mt-6 bg-gray2"/>
-
+      
       <div id="ofertas" className="mt-6">
         <Offers offers={listOfOffersExample} />
       </div>
+
+
+      <Separator className="mt-6 bg-gray2"/>
 
     </div>
 
