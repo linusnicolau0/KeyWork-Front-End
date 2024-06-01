@@ -1,69 +1,98 @@
 import { Separator } from "../components/ui/separator";
 import { Carrousel } from "./components/Carrousel";
+import { Footer } from "./components/Footer";
 import { Offers } from "./components/Offers";
 
 const listOfOffersExample = [
   {
+    id: 1,
     title: "Pulidor de madera",
     date: "30/05/24",
     salary: "12€/h",
     imageUrl: "https://images.unsplash.com/photo-1561297331-a9c00b9c2c44?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    description: "Pulidor de madera para trabajar en taller de carpinteria. Se requiere experiencia previa en el sector.",
+    companyName: "Carpinteria Madera S.L.",
+    companyLogo: "https://images.unsplash.com/photo-1617817546276-80b86dd60151?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    requirements: ["Experiencia previa", "Carnet de conducir"]
   },
   {
+    id: 2,
     title: "Ayudante de festival",
     date: "31/05/24",
     salary: "8€/h",
     imageUrl: "https://images.unsplash.com/photo-1472653816316-3ad6f10a6592?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    description: "Se busca ayudante para montaje y desmontaje de escenarios en festival de musica. Se requiere disponibilidad horaria.",
+    companyName: "Festival de musica de Madrid",
+    companyLogo: "https://images.unsplash.com/photo-1617817546276-80b86dd60151?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    requirements: ["Disponibilidad horaria", "Carnet de conducir"]
   },
   {
+    id: 3,
     title: "Guardia Urbano",
     date: "01/06/24",
     salary: "10€/h",
     imageUrl: "https://images.unsplash.com/photo-1570909776719-186852c5ea6f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    description: "Se busca guardia urbano para trabajar en el centro de la ciudad. Se requiere experiencia previa en el sector.",
+    companyName: "Ayuntamiento de Madrid",
+    companyLogo: "https://images.unsplash.com/photo-1617817546276-80b86dd60151?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    requirements: ["Experiencia previa", "Carnet de conducir"]
   },
   {
+    id: 4,
     title: "Profesor de matematicas y fisica",
     date: "02/06/24",
     salary: "9€/h",
     imageUrl: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    description: "Se busca profesor de matematicas y fisica para clases particulares. Se requiere experiencia previa en el sector.",
+    companyName: "Academia de matematicas y fisica",
+    companyLogo: "https://images.unsplash.com/photo-1617817546276-80b86dd60151?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    requirements: ["Experiencia previa", "Carnet de conducir"]
   },
   {
+    id: 5,
     title: "Repartidor",
     date: "03/06/24",
     salary: "10€/h",
     imageUrl: "https://images.unsplash.com/photo-1617817546276-80b86dd60151?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    description: "Se busca repartidor para trabajar en la zona centro de la ciudad. Se requiere experiencia previa en el sector.",
+    companyName: "Repartos Express S.L.",
+    companyLogo: "https://images.unsplash.com/photo-1617817546276-80b86dd60151?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    requirements: ["Experiencia previa", "Carnet de conducir"]
   },
   {
+    id: 6,
     title: "Camarero",
     date: "04/06/24",
     salary: "13€/h",
     imageUrl: "https://images.unsplash.com/photo-1566670735914-b2038696981d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    description: "Se busca camarero para trabajar en restaurante de comida rapida. Se requiere experiencia previa en el sector.",
+    companyName: "Restaurante Fast Food S.L.",
+    companyLogo: "https://images.unsplash.com/photo-1617817546276-80b86dd60151?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    requirements: ["Experiencia previa", "Carnet de conducir"]
   },
 ];
 
 
 export default function Home() {
   return (
-    
     <>
 
-    <Carrousel />
+      <Carrousel />
 
-    <div className="bg-gray h-[180px] mx-40 content-center">
+      <div className="bg-gray h-[180px] mx-20 content-center">
 
-      <h1 className="text-white font-bold text-4xl mt-6" style={{ letterSpacing: '0.0em' }}>
-        Ofertas destacadas
-      </h1>
-      <Separator className="mt-6 bg-gray2"/>
-      
-      <div id="ofertas" className="mt-6">
-        <Offers offers={listOfOffersExample} />
+        <h1 className="text-white font-bold text-4xl mt-6" style={{ letterSpacing: '0.0em' }}>
+          Ofertas destacadas
+        </h1>
+        <Separator className="mt-6 bg-gray2"/>
+        
+        <div id="ofertas" className="mt-6">
+          <Offers offers={listOfOffersExample} />
+        </div>
+
+        <Separator className="mt-6 bg-gray2"/>
+
       </div>
-
-
-      <Separator className="mt-6 bg-gray2"/>
-
-    </div>
 
     </>
   );
