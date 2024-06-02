@@ -76,6 +76,18 @@ const listOfOffersExample = [
     companyLogo: "https://images.unsplash.com/photo-1617817546276-80b86dd60151?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     requirements: ["Experiencia previa", "Carnet de conducir"]
   },
+  {
+    id: 7,
+    title: "Limpiador",
+    date: "05/06/24",
+    salary: 9,
+    imageUrl: "https://images.unsplash.com/photo-1598513430940-5a9e9b1a4b8a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    description: "Se busca limpiador para trabajar en oficinas. Se requiere experiencia previa en el sector.",
+    hours: 8,
+    companyName: "Limpiezas Express S.L.",
+    companyLogo: "https://images.unsplash.com/photo-1617817546276-80b86dd60151?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    requirements: ["Experiencia previa", "Carnet de conducir"]
+  }
 ];
 
 
@@ -92,7 +104,7 @@ export default function Home() {
         </h1>
         <Separator className="mt-6 bg-gray2"/>
         
-        <div id="ofertas" className="mt-6">
+        <div id="ofertas" className="mt-6 h-screen overflow-y-auto no-scrollbar">
           <Offers offers={listOfOffersExample} />
         </div>
 
