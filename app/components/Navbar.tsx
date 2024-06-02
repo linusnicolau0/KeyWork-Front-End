@@ -28,6 +28,16 @@ export function Navbar()
  
             <div className="ml-auto flex">
 
+                {/*La distribució dels botons es farà un cop estigui feta la base de dades i el sistema de login funcioni*/}
+
+                {/*Boton de crear oferta*/}
+                <Button className="bg-white mr-10 mt-1.5 hover:bg-[#b3b4b6] rounded-xl" asChild>
+                    {/*Canviar href per redirigir a la pagina de creació d'ofertes (pendent de creació)*/}
+                    <Link href="/">
+                        <h1 className="text-black">Añadir oferta</h1>
+                    </Link>
+                </Button>
+
                 {/*Boton de inicio de sesion*/}
                 <Button className="bg-white mr-10 mt-1.5 hover:bg-[#b3b4b6] rounded-xl">
                     <h1 className="text-black">Iniciar Sesion</h1>
