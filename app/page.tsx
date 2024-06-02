@@ -98,6 +98,8 @@ export default function Home() {
 
         <Separator className="mt-6 bg-gray2"/>
 
+        <Footer />
+
       </div>
 
     </>

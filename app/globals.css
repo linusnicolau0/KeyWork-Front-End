@@ -86,3 +86,13 @@
       scrollbar-width: none;  /* Firefox */
   }
 }
+
+.truncate-container {
+  width: 220px; /* Ajusta el ancho según tus necesidades */
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -34,12 +34,12 @@ export function Offers ({ offers }: Props) {
                     <Card className="w-80 rounded-lg overflow-hidden shadow-lg border-gray cursor-pointer">
                         <img src={offer.imageUrl} alt={offer.title} className="w-full h-40 object-cover" />
                         <div className="p-3 bg-black text-white flex items-center">
-                            <div>
-                                <h2 className="text-lg font-semibold">{offer.title}</h2> {/* TODO: Posar 3 punts abans que salti de linea */}
+                            <div className="truncate-container">
+                                <h2 className="truncate text-lg font-semibold">{offer.title}</h2>
                                 <p className="text-sm text-gray-400">{offer.date}</p>
                             </div>
                             <div className="ml-auto">
-                                <p className="text-xl font-bold items-end">{offer.salary}</p>
+                                <p className="text-xl font-bold items-end">{offer.salary}€/h</p>
                             </div>
                         </div>
                     </Card>
@@ -68,22 +68,22 @@ export function Offers ({ offers }: Props) {
                                     <div className="w-1/3 flex-col mb-2">
                                         {/* Imagen empresa, nombre y rating */}
                                         <div className="flex items-center justify-center">
-                                            <div className="flex flex-col items-center justify-between">
-                                                <h3 className="text-md font-semibold">{selectedOffer.companyName}</h3> {/* TODO: Centrar */}
+                                            <div className="flex flex-col items-center justify-between ml-10">
+                                                <h3 className="text-md font-semibold text-center">{selectedOffer.companyName}</h3>
                                                 <p className="">Rating: 5/5</p>
                                             </div>
-                                            <img src={selectedOffer.companyLogo} alt={selectedOffer.companyName} className="w-20 h-20 rounded-lg"/>
+                                            <img src={selectedOffer.companyLogo} alt={selectedOffer.companyName} className="w-12 h-12 rounded-full ml-10"/>
                                         </div>
                                         {/* Salario y fecha */}
                                         <div className="flex flex-col h-40 items-center justify-center">
-                                            <p className="text-3xl font-semibold">{selectedOffer.salary}</p>
+                                            <p className="text-3xl font-semibold">{selectedOffer.salary}€/h</p>
                                             <p className="text-sm text-gray-400">{selectedOffer.date}</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="flex">
                                     {/* Descripción */}
-                                    <div className="w-2/3 mr-auto">
+                                    <div className="w-2/3 mr-10">
                                         <h3 className="text-lg font-semibold mb-2">Descripción del trabajo</h3>
                                         <p className="mb-4">{selectedOffer.description}</p>
                                     </div>
@@ -101,7 +101,7 @@ export function Offers ({ offers }: Props) {
                             </div>
                             {/* Botón contactar */}
                             <div className="flex justify-end p-4 border-t">
-                                <button onClick={closeDialog} className="bg-[#ff6725] text-white px-4 py-2 rounded-lg">Contactar</button>
+                                <button onClick={closeDialog} className="bg-[#ff6725] text-white px-4 py-2 rounded-lg hover:bg-[#bf663f]">Contactar</button>
                             </div>
                         </div>
                     </DialogContent>
@@ -110,3 +110,4 @@ export function Offers ({ offers }: Props) {
         </div>
     );
 };
+

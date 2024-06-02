@@ -18,7 +18,7 @@ export function Footer() {
       };
 
     return(
-        <footer className="bg-white text-white h-[200px] flex items-center">
+        <footer className="bg-white text-white h-[240px] flex items-center">
 
             <div className="bg-gray w-1/2 h-full flex items-center">
                 <div className="bg-gray w-9/12 h-3/4 p-4 ml-12 justify-center">
