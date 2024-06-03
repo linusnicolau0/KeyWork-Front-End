@@ -113,11 +113,6 @@ export default function Home() {
 
         <Footer />
 
-        {/* Developing create offer */}
-        <div className="bg-white h-screen">
-          <CreateOffer />
-        </div>
-
       </div>
 
     </>
