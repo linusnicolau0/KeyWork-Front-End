@@ -1,5 +1,6 @@
 import { Separator } from "../components/ui/separator";
 import { Carrousel } from "./components/Carrousel";
+import { CreateOffer } from "./components/CreateOffer";
 import { Footer } from "./components/Footer";
 import { Offers } from "./components/Offers";
 
@@ -111,6 +112,11 @@ export default function Home() {
         <Separator className="mt-6 bg-gray2"/>
 
         <Footer />
+
+        {/* Developing create offer */}
+        <div className="bg-white h-screen">
+          <CreateOffer />
+        </div>
 
       </div>
 
