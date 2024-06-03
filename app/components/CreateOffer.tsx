@@ -48,7 +48,7 @@ export function CreateOffer() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Aquí deberías enviar los datos a tu servidor o API
+        // TODO: Aquí deberías enviar los datos a tu servidor o API
         console.log(offer);
         // Navegar de vuelta a la página de ofertas después de la creación
         //router.push('/ofertas');
