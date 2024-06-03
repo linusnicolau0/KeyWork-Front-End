@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Dialog, DialogOverlay, DialogContent } from '@/components/ui/dialog';
+import { Button } from "@/components/ui/button";
 import { cn } from '@/lib/utils';
 
 import { OfferType } from '../types';
@@ -113,7 +114,7 @@ export function Offers ({ offers }: Props) {
                             </div>
                             {/* Botón contactar */}
                             <div className="flex justify-end p-4 border-t">
-                                <button onClick={closeDialog} className="bg-[#ff6725] text-white px-4 py-2 rounded-lg">Contactar</button>
+                                <Button onClick={closeDialog} className="bg-[#ff6725] text-white px-4 py-2 rounded-lg">Contactar</Button>
                             </div>
                         </div>
                     </DialogContent>
