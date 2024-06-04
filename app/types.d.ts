@@ -3,11 +3,11 @@ export type OfferType = {
     title: string;
     date: string;
     salary: number; // per hour
-    imageUrl: string;
+    imageUrl: string; //generar desde frontend
     description: string;
     hours: number;
-    companyName: string;
-    companyLogo: string;
+    companyName: string; //generar desde frontend
+    companyLogo: string; //generar desde frontend
     requirements: string[];
 };
 
@@ -21,7 +21,7 @@ export type UserProfileType = {
     skills: string[];
     experience: string[];
     education: string[];
-    meanRating: number;
-    numberOfCompletedJobs: number;
-    // completedJobs: OfferType[];
+    meanRating: number; // es genera al frontend
+    numberOfCompletedJobs: number; // es genera al frontend
+    // completedJobs: OfferType[]; // Es un array de offers
 };
