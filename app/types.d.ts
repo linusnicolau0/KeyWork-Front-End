@@ -10,3 +10,18 @@ export type OfferType = {
     companyLogo: string;
     requirements: string[];
 };
+
+export type UserProfileType = {
+    id: number;
+    name: string;
+    email: string;
+    imageUrl: string;
+    bio: string;
+    location: string;
+    skills: string[];
+    experience: string[];
+    education: string[];
+    meanRating: number;
+    numberOfCompletedJobs: number;
+    // completedJobs: OfferType[];
+};
