@@ -40,12 +40,16 @@ export function Navbar()
 
                 {/*Boton de inicio de sesion*/}
                 <Button className="bg-white mr-10 mt-1.5 hover:bg-[#b3b4b6] rounded-xl">
-                    <h1 className="text-black">Iniciar Sesion</h1>
+                    <Link href="/login">
+                        <h1 className="text-black">Iniciar Sesion</h1>
+                    </Link>
                 </Button>
 
                 {/*Boton de registro*/}
                 <Button className="bg-white mr-6 mt-1.5 hover:bg-[#b3b4b6] rounded-xl">
-                    <h1 className="text-black">Registrarse</h1>
+                    <Link href="/register">
+                        <h1 className="text-black">Registrarse</h1>
+                    </Link>
                 </Button>
 
                 {/*Foto de usuario*/}
