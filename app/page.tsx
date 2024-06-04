@@ -1,5 +1,6 @@
 import { Separator } from "../components/ui/separator";
 import { Carrousel } from "./components/Carrousel";
+import { CreateOffer } from "./components/CreateOffer";
 import { Footer } from "./components/Footer";
 import { Offers } from "./components/Offers";
 
