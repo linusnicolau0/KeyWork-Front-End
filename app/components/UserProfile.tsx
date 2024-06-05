@@ -10,7 +10,7 @@ export function UserProfile({ user }: Props) {
     return (
         <div id='user-profile' className="bg-white p-5 rounded-lg">
             {/* Nombre, foto, ubicación y descripción */}
-            <div className="flex w-full bg-blue-300">
+            <div className="flex w-full">
                 <img src={user.imageUrl} alt={user.name} className="w-40 h-40 rounded-lg" />
                 <div className="flex-col">
                     <div className="ml-5 flex items-center">
@@ -23,52 +23,67 @@ export function UserProfile({ user }: Props) {
                     </div>
                 </div>
             </div>
-            {/* Habilidades, experiencia y estudios */}
-            <div className="flex w-full">
-                <div className="w-1/3 mt-5">
-                    <h3 className="text-xl font-bold">Habilidades</h3>
-                    <ul>
-                        {user.skills.map((skill, index) => (
-                            <li key={index}>{skill}</li>
-                        ))}
-                    </ul>
+            {/* Información central */}
+            <div className="flex w-full mt-2">
+                {/* Habilidades, experiencia y estudios */}
+                <div className="flex-col w-2/5">
+                    <div className="mt-5">
+                        <h3 className="text-xl font-bold">Habilidades</h3>
+                        <ul>
+                            {user.skills.map((skill, index) => (
+                                <li key={index}>{skill}</li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="mt-5">
+                        <h3 className="text-xl font-bold">Experiencia</h3>
+                        <ul>
+                            {user.experience.map((exp, index) => (
+                                <li key={index}>{exp}</li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="mt-5">
+                        <h3 className="text-xl font-bold">Estudios</h3>
+                        <ul>
+                            {user.education.map((edu, index) => (
+                                <li key={index}>{edu}</li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
-                <div className="w-1/3 mt-5">
-                    <h3 className="text-xl font-bold">Experiencia</h3>
-                    <ul>
-                        {user.experience.map((exp, index) => (
-                            <li key={index}>{exp}</li>
-                        ))}
-                    </ul>
-                </div>
-                <div className="w-1/3 mt-5">
-                    <h3 className="text-xl font-bold">Estudios</h3>
-                    <ul>
-                        {user.education.map((edu, index) => (
-                            <li key={index}>{edu}</li>
-                        ))}
-                    </ul>
+                {/* Historial laboral, valoraciones y número de trabajos completados */}
+                <div className="flex-col w-3/5 justify-between">
+                    {/* Historial */}
+                    <div className="flex mt-5 justify-between items-center">
+                        <h2 className="text-xl font-bold">Historial laboral</h2>
+                        <p>Número de trabajos completados: {user.numberOfCompletedJobs}</p>
+                        <p>Valoración media: {user.meanRating}</p>
+                    </div>
+                    <div className="mt-3">
+                        {/* {user.completedJobs.map((job, index) => (
+                            <div key={index}>
+                                <p>{job.title}</p>
+                                <p>{job.companyName}</p>
+                            </div>
+                        ))} */}
+                        {/* Por defecto quiero que se muestre "Aun no ha realizado trabajos en KeyWork" */}
+                        <p>Aún no ha realizado trabajos en KeyWork...</p>
+                    </div>
                 </div>
             </div>
-            {/* Historial laboral, valoraciones y número de trabajos completados */}
-            <div className="flex w-full mt-5 justify-between bg-blue-300">
-                {/* Historial */}
-                <div>
-                    <h2 className="text-xl font-bold">Historial laboral</h2>
-                    {/* {user.completedJobs.map((job, index) => (
-                        <div key={index}>
-                            <p>{job.title}</p>
-                            <p>{job.companyName}</p>
-                        </div>
-                    ))} */}
-                    {/* Por defecto quiero que se muestre "Aun no ha realizado trabajos en KeyWork" */}
-                    <p>Aún no ha realizado trabajos en KeyWork</p>
-                </div>
-                {/* Valoraciones y trabajos completados */}
-                <div className="mt-5">
-                    <p>Valoración media: {user.meanRating}</p>
-                    <p>Número de trabajos completados: {user.numberOfCompletedJobs}</p>
-                </div>
+            {/* Reseñas */}
+            <div className="flex-col w-full">
+                <h2 className="text-xl font-bold mt-5 mb-5 text-center">Reseñas</h2>
+                {/* {user.reviews.map((review, index) => (
+                    <div key={index}>
+                        <p>{review.title}</p>
+                        <p>{review.rating}</p>
+                        <p>{review.comment}</p>
+                    </div>
+                ))} */}
+                {/* Por defecto quiero que se muestre "Aun no tiene reseñas en KeyWork" */}
+                <p>Aún no tiene reseñas en KeyWork...</p>
             </div>
         </div>
     );

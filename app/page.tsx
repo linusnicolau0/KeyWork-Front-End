@@ -4,6 +4,8 @@ import { CreateOffer } from "./components/CreateOffer";
 import { Footer } from "./components/Footer";
 import { Offers } from "./components/Offers";
 
+import { UserProfile } from "./components/UserProfile";
+
 const listOfOffersExample = [
   {
     id: 1,
@@ -91,6 +93,35 @@ const listOfOffersExample = [
   }
 ];
 
+const listOfUsersExample = [
+  {
+    id: 1,
+    name: "Juan Perez",
+    email: "juanperez@gmail.com",
+    imageUrl: "https://images.unsplash.com/photo-1617817546276-80b86dd60151?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    bio: "Estudiante de ingenieria informatica en la universidad de Madrid.",
+    location: "Madrid",
+    skills: ["C++", "Java", "Python"],
+    experience: ["Desarrollo de aplicaciones web", "Desarrollo de aplicaciones moviles"],
+    education: ["Ingenieria informatica"],
+    meanRating: 4.5,
+    numberOfCompletedJobs: 10
+  },
+  {
+    id: 2,
+    name: "Maria Lopez",
+    email: "marialopez@gmail.com",
+    imageUrl: "https://images.unsplash.com/photo-1617817546276-80b86dd60151?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    bio: "Estudiante de matematicas en la universidad de Madrid.",
+    location: "Madrid",
+    skills: ["Matematicas", "Fisica", "Quimica"],
+    experience: ["Clases particulares de matematicas", "Clases particulares de fisica"],
+    education: ["Matematicas"],
+    meanRating: 4.5,
+    numberOfCompletedJobs: 10
+  },
+];
+
 
 export default function Home() {
   return (
@@ -113,6 +144,9 @@ export default function Home() {
 
         <Footer />
 
+        <div className="h-screen">
+          <UserProfile user={listOfUsersExample[1]} />
+        </div>
       </div>
 
     </>
