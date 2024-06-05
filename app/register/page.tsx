@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 
 export default function Register() {

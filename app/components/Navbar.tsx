@@ -1,25 +1,22 @@
-"use client"
-
 import Image from "next/image"
 import Link from "next/link"
 {/*Desktop logo se usara para navegacion con PC*/}
 import KeyworkLogo from '../icons/keywork_icon.png'
 import { UserNav } from "./UserNav";
 import { Button } from "@/components/ui/button";
-import { useEffect } from "react";
-import axios from "../api/axios.js";
 
-export function Navbar() 
-{
-    let userAuth;
+export function Navbar() {
 
-    useEffect(() => {
-        axios.get('/api/user').then((response: any) => {
-            userAuth = response.data;
-            console.log(userAuth);
-        });
-    }, []);
+    const tokenGetter = () => {
+        if (typeof window !== 'undefined') {
+            const token = window.localStorage.getItem("token");
+            return token;
+        }
+        return null; // O manejar de otra manera si no estás en el cliente
+    };
+    
 
+    const token = tokenGetter();
 
     return (
         <nav className="bg-gray h-[100px] flex justify-center items-center px-6 py-4">
@@ -42,21 +39,18 @@ export function Navbar()
 
             <div className="ml-auto flex">
 
-                {/* Borrar això quan estigui el login funcionant */}
+                {/* Borrar això quan estigui el login funcionant 
                 <Button className="bg-slate-100 mr-10 mt-1.5 hover:bg-[#b3b4b6] rounded-xl" asChild>
                     <Link href="/create-offer">
                         <h1 className="text-black">Añadir oferta</h1>
                     </Link>
                 </Button>
                 <UserNav />
-                {/* Fins aquí */}
+                Fins aquí */}
 
-                {userAuth === null ? (
+                {token !== null ? (
+                    //El usuario esta logeado
                     <>
-                        <div>
-                            <h1 className="text-white">hola</h1>
-                        </div>
-
                         <Button className="bg-slate-100 mr-10 mt-1.5 hover:bg-[#b3b4b6] rounded-xl" asChild>
                             <Link href="/create-offer">
                                 <h1 className="text-black">Añadir oferta</h1>
@@ -68,6 +62,7 @@ export function Navbar()
 
                     </>
                 ) : (
+                    //El usuario no esta logeado
                     <>
                         <Button className="bg-slate-100 mr-10 mt-1.5 hover:bg-[#b3b4b6] rounded-xl">
                             <Link href="/login">
