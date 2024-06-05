@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import axios from '../api/axios.js';
 
@@ -14,44 +14,51 @@ type Props = {
 
 export default function UserProfile() {
 
-    let user: UserProfileType = {
-        id: 2,
-        name: "Maria Lopez",
-        email: "marialopez@gmail.com",
-        imageUrl: "https://images.unsplash.com/photo-1617817546276-80b86dd60151?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        bio: "Estudiante de matematicas en la universidad de Madrid.",
-        location: "Madrid",
-        skills: ["Matematicas", "Fisica", "Quimica"],
-        experience: ["Clases particulares de matematicas", "Clases particulares de fisica"],
-        education: ["Matematicas"],
+    const [user, setUser] = useState<UserProfileType>({
+        id: 0,
+        name: "",
+        email: "",
+        image_url: "",
+        biography: "",
+        location: "",
+        skills: [],
+        experiences: [],
+        education: [],
         meanRating: 4.5,
         numberOfCompletedJobs: 10
-    }
+    });
 
     // hacer get del objeto data y asignar cada campo a user
     useEffect(() => {
-        axios.get('/api/user').then((response: any) => {
-            user.id = response.data.id;
-            user.name = response.data.name;
-            user.email = response.data.email;
-            user.imageUrl = "https://images.unsplash.com/photo-1617817546276-80b86dd60151?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
-            user.bio = response.data.bio;
-            user.location = response.data.location;
-            user.skills = response.data.skills;
-            user.experience = response.data.experience;
-            user.education = response.data.education;
-            user.meanRating = 4.5;
-            user.numberOfCompletedJobs = 10;
-            console.log(user);
+        let config = {
+            headers: {
+              'Authorization': 'Bearer ' + localStorage.getItem('token')
+            }
+          }
+        axios.get('/api/user/profile', config).then((response: any) => {
+            const profile = response.data.profile;
+            setUser({
+                ...user,
+                id: profile.id,
+                name: profile.name,
+                email: profile.email,
+                image_url: profile.image_url,
+                biography: profile.biography,
+                location: profile.location,
+                skills: profile.skills,
+                experiences: profile.experiences,
+                education: profile.education,
+            });
         });
     }, []);
 
     return (
         <div id='user-profile' className="bg-gray2 p-5 w-full flex justify-center">
             <div className="w-8/12 rounded-3xl bg-slate-100 min-h-[1200px] p-6">
+            <h1 className="text-4xl font-bold mr-5">{user.name}</h1> {/** This line should be removed */}
                 {/* Nombre, foto, ubicación y descripción */}
                 <div className="flex items-center justify-center space-x-6 mb-3 mt-3 ml-3">
-                    <img src={user.imageUrl} alt={user.name} className="w-32 h-32 rounded-full" />
+                    <img src={user.image_url} alt={user.name} className="w-32 h-32 rounded-full" />
                     <div className="flex-col">
                         <div className="ml-5 flex items-center">
                             <h1 className="text-4xl font-bold mr-5">{user.name}</h1>
@@ -59,7 +66,7 @@ export default function UserProfile() {
                         </div>
                         <div className="ml-5 mt-[2px]">
                             {/* <h2 className="text-lg font-bold">Biografia</h2> */}
-                            <p>{user.bio}</p>
+                            <p>{user.biography}</p>
                         </div>
                     </div>
                 </div>
@@ -71,24 +78,24 @@ export default function UserProfile() {
                         <div className="mt-5 w-8/12 bg-lightGray rounded-2xl px-4 py-4 mb-4">
                             <h3 className="text-xl text-center font-bold">Habilidades</h3>
                             <ul className="mt-2 text-center">
-                                {user.skills.map((skill, index) => (
-                                    <li key={index}>{skill}</li>
+                                {user.skills.map(skill => (
+                                    <li key={skill.id}>{skill.name}</li>
                                 ))}
                             </ul>
                         </div>
                         <div className="mt-5 w-8/12 bg-lightGray rounded-2xl px-4 py-4 mb-4">
                             <h3 className="text-xl text-center font-bold">Experiencia</h3>
                             <ul className="mt-2 text-center">
-                                {user.experience.map((exp, index) => (
-                                    <li key={index}>{exp}</li>
+                                {user.experiences.map(exp => (
+                                    <li key={exp.id}>{exp.title}</li>
                                 ))}
                             </ul>
                         </div>
                         <div className="mt-5 w-8/12 bg-lightGray rounded-2xl px-4 py-4 mb-4">
                             <h3 className="text-xl text-center font-bold">Estudios</h3>
                             <ul className="mt-2 text-center">
-                                {user.education.map((edu, index) => (
-                                    <li key={index}>{edu}</li>
+                                {user.education.map(edu => (
+                                    <li key={edu.id}>{edu.name}</li>
                                 ))}
                             </ul>
                         </div>
