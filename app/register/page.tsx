@@ -7,10 +7,10 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 
 export default function Register() {
-
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [passwordConfirmation, setPasswordConfirmation] = useState('');
     const [termsAccepted, setTermsAccepted] = useState(false);
     const [error, setError] = useState('');
 
@@ -24,17 +24,21 @@ export default function Register() {
 
         try {
             const response = await axios.post('/api/register', {
-                name: name,
-                email: email,
-                password: password
+                name,
+                email,
+                password,
+                password_confirmation: passwordConfirmation
             });
             if (response.status === 200) {
-                alert("Registro exitoso");
                 window.location.href = '/login'; // Redirigir al login o dashboard
             }
         } catch (error) {
             console.error("Error durante el registro:", error);
-            setError("Error durante el registro");
+            if ((error as any).response && (error as any).response.data) {
+                setError((error as any).response.data.message);
+            } else {
+                setError("Error durante el registro");
+            }
         }
     };
 
@@ -51,7 +55,7 @@ export default function Register() {
                             placeholder="Ingrese su nombre"
                             className="w-full bg-[#c9c9c9] text-muted-foreground"
                             value={name}
-                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
+                            onChange={(e) => setName(e.target.value)}
                         />
                     </div>
                     <div className="w-full">
@@ -60,7 +64,7 @@ export default function Register() {
                             placeholder="Ingrese su email"
                             className="w-full bg-[#c9c9c9] text-muted-foreground"
                             value={email}
-                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
                     <div className="w-full">
@@ -69,7 +73,16 @@ export default function Register() {
                             placeholder="Ingrese su contraseña"
                             className="w-full bg-[#c9c9c9] text-muted-foreground"
                             value={password}
-                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
+                    <div className="w-full">
+                        <Input
+                            type="password"
+                            placeholder="Confirme su contraseña"
+                            className="w-full bg-[#c9c9c9] text-muted-foreground"
+                            value={passwordConfirmation}
+                            onChange={(e) => setPasswordConfirmation(e.target.value)}
                         />
                     </div>
                     <div className="w-full flex items-center space-x-3">
@@ -78,7 +91,7 @@ export default function Register() {
                             type="checkbox"
                             required
                             checked={termsAccepted}
-                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTermsAccepted(e.target.checked)}
+                            onChange={(e) => setTermsAccepted(e.target.checked)}
                         />
                         <label
                             htmlFor="terms1"
