@@ -61,8 +61,8 @@ export function Offers ({ offers }: Props) {
                         <div>
                             {/* Titulo y fecha */}
                             <div className="flex justify-between items-center p-4 border-b">
-                                <h2 className="text-xl font-semibold">{selectedOffer.title}</h2>
-                                <p className="text-sm text-gray-400">{selectedOffer.date}</p>
+                                <h2 className="text-3xl font-semibold">{selectedOffer.title}</h2>
+                                <p className="text-md font-semibold">{selectedOffer.date}</p>
                             </div>
                             {/* Contenido */}
                             <div className="p-4">
@@ -70,7 +70,7 @@ export function Offers ({ offers }: Props) {
                                     <img src={selectedOffer.imageUrl} alt={selectedOffer.title} className="w-2/3 h-60 object-cover rounded-lg mb-4"/>
                                     <div className="w-1/3 flex-col mb-2">
                                         {/* Imagen empresa, nombre y rating */}
-                                        <div className="flex items-center text-center">
+                                        <div className="flex items-center text-center pt-5">
                                             <div className="flex flex-col">
                                                 <h3 className="text-md font-semibold mx-2">{selectedOffer.companyName}</h3>
                                                 <div id='rating' className="flex items-center justify-center">
@@ -81,20 +81,20 @@ export function Offers ({ offers }: Props) {
                                             <img src={selectedOffer.companyLogo} alt={selectedOffer.companyName} className="w-20 h-20 rounded-full"/>
                                         </div>
                                         {/* Salario */}
-                                        <div className="flex flex-col h-40 px-4">
-                                            <div className="h-3/4 flex flex-col justify-center">
+                                        <div className="flex flex-col h-40 px-4 py-8">
+                                            <div className="h-3/4 flex flex-col justify-end pb-2 border-b">
                                                 <div className="flex justify-between">
-                                                    <p className="text-sm text-gray-400">Salario: </p>
-                                                    <p className="text-sm text-gray-400">{selectedOffer.salary}€/h</p>
+                                                    <p className="text-md font-semibold">Salario: </p>
+                                                    <p className="text-md font-semibold">{selectedOffer.salary}€/h</p>
                                                 </div>
                                                 <div className="flex justify-between">
-                                                    <p className="text-sm text-gray-400">Tiempo de trabajo: </p>
-                                                    <p className="text-sm text-gray-400">{selectedOffer.hours}h</p>
+                                                    <p className="text-md font-semibold">Tiempo de trabajo: </p>
+                                                    <p className="text-md font-semibold">{selectedOffer.hours}h</p>
                                                 </div>
                                             </div>
-                                            <div className="h-1/4 flex justify-between">
-                                                <p className="text-3xl font-semibold">Total: </p>
-                                                <p className="text-3xl font-semibold">{selectedOffer.salary * selectedOffer.hours}€</p>
+                                            <div className="h-1/4 flex justify-between py-2">
+                                                <p className="text-2xl font-bold">Total: </p>
+                                                <p className="text-2xl font-bold">{selectedOffer.salary * selectedOffer.hours}€</p>
                                             </div>
                                         </div>
                                     </div>
@@ -102,13 +102,13 @@ export function Offers ({ offers }: Props) {
                                 <div className="flex">
                                     {/* Descripción */}
                                     <div className="w-2/3 mr-10">
-                                        <h3 className="text-lg font-semibold mb-2">Descripción del trabajo</h3>
+                                        <h3 className="text-lg font-bold mb-2">Descripción del trabajo</h3>
                                         <p className="mb-4">{selectedOffer.description}</p>
                                     </div>
                                     {/* <Separator orientation="vertical" className="bg-black" /> */}
                                     {/* Requisitos */}
                                     <div className="w-1/3">
-                                        <h3 className="text-lg font-semibold mb-2">Requisitos</h3>
+                                        <h3 className="text-lg font-bold mb-2">Requisitos</h3>
                                         <ul className="list-disc list-inside">
                                             {selectedOffer.requirements.map((req, index) => (
                                                 <li key={index}>{req}</li>
