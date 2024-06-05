@@ -26,7 +26,12 @@ export default function Login() {
         })
         .then((response: any) => {
             console.log(response);
-            /* window.location.href = '/'; */
+            if(response.status == 200 && localStorage.getItem('token') == null) {
+                localStorage.setItem('token', response.data['token']);
+                const token = localStorage.getItem('token');
+                axios.defaults.headers.common = {'Authorization': `Bearer ${token}`}
+            }
+            window.location.href = '/';
         })
         .catch(error => {
             console.log(error);
