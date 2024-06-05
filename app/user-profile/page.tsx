@@ -14,7 +14,7 @@ type Props = {
 
 export default function UserProfile() {
 
-    const user: UserProfileType = {
+    let user: UserProfileType = {
         id: 2,
         name: "Maria Lopez",
         email: "marialopez@gmail.com",
@@ -29,12 +29,22 @@ export default function UserProfile() {
     }
 
     // hacer get del objeto data y asignar cada campo a user
-    /* useEffect(() => {
+    useEffect(() => {
         axios.get('/api/user').then((response: any) => {
-            user = response.data;
+            user.id = response.data.id;
+            user.name = response.data.name;
+            user.email = response.data.email;
+            user.imageUrl = "https://images.unsplash.com/photo-1617817546276-80b86dd60151?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+            user.bio = response.data.bio;
+            user.location = response.data.location;
+            user.skills = response.data.skills;
+            user.experience = response.data.experience;
+            user.education = response.data.education;
+            user.meanRating = 4.5;
+            user.numberOfCompletedJobs = 10;
             console.log(user);
         });
-    }, []); */
+    }, []);
 
     return (
         <div id='user-profile' className="bg-gray2 p-5 w-full flex justify-center">

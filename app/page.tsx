@@ -1,8 +1,14 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 import { Separator } from "../components/ui/separator";
 import { Carrousel } from "./components/Carrousel";
 import { Footer } from "./components/Footer";
 import { Offers } from "./components/Offers";
-//import { UserProfile } from "./user-profile/UserProfile";
+import { OfferType } from "./types";
+
+import axios from "./api/axios.js";
 
 const listOfOffersExample = [
   {
@@ -122,6 +128,15 @@ const listOfUsersExample = [
 
 
 export default function Home() {
+
+  /* Quiero coger las ofertas de mi servidor y guardarlas en una lista */
+  const [offers, setOffers] = useState<OfferType[]>([]);
+  useEffect(() => {
+    axios.get('/api/offers').then((response: any) => {
+      setOffers(response.data); /* TODO: */
+    });
+  }, []);
+
   return (
     <>
 
@@ -142,9 +157,6 @@ export default function Home() {
 
         <Footer />
 
-        {/* <div className="h-screen">
-          <UserProfile user={listOfUsersExample[1]} />
-        </div> */}
       </div>
 
     </>
