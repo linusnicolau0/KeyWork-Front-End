@@ -109,7 +109,7 @@ export default function UserProfile() {
                 <div className="flex justify-center h-2/5">
                     {/* Reseñas */}
                     <div className='w-10/12 bg-lightGray rounded-2xl mt-10'>
-                        <h2 className="text-xl font-bold mt-5 mb-5 text-center">Reseñas</h2>
+                        <h2 className="text-xl font-bold mt-5 mb-5 text-center">Opiniones</h2>
                         {/* {user.reviews.map((review, index) => (
                             <div key={index}>
                                 <p>{review.title}</p>
