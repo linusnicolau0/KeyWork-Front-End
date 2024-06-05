@@ -1,4 +1,8 @@
+"use client";
 
+import { useEffect } from 'react';
+
+import axios from '../api/axios.js';
 
 import { UserProfileType } from '../types';
 
@@ -7,6 +11,15 @@ type Props = {
 };
 
 export function UserProfile({ user }: Props) {
+
+    // hacer get del objeto data y asignar cada campo a user
+    useEffect(() => {
+        axios.get('/api/user').then((response: any) => {
+            user = response.data;
+            console.log(user);
+        });
+    }, []);
+
     return (
         <div id='user-profile' className="bg-white p-5 rounded-lg">
             {/* Nombre, foto, ubicación y descripción */}
