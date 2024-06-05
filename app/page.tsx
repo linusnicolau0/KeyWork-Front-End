@@ -2,7 +2,7 @@ import { Separator } from "../components/ui/separator";
 import { Carrousel } from "./components/Carrousel";
 import { Footer } from "./components/Footer";
 import { Offers } from "./components/Offers";
-import { UserProfile } from "./components/UserProfile";
+//import { UserProfile } from "./user-profile/UserProfile";
 
 const listOfOffersExample = [
   {
@@ -142,9 +142,9 @@ export default function Home() {
 
         <Footer />
 
-        <div className="h-screen">
+        {/* <div className="h-screen">
           <UserProfile user={listOfUsersExample[1]} />
-        </div>
+        </div> */}
       </div>
 
     </>

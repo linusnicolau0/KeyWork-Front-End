@@ -4,26 +4,41 @@ import { useEffect } from 'react';
 
 import axios from '../api/axios.js';
 
-import { UserProfileType } from '../types';
+import { UserProfileType } from '../types.js';
 import { Separator } from '@radix-ui/react-dropdown-menu';
+import { User } from 'lucide-react';
 
 type Props = {
     user: UserProfileType;
 };
 
-export function UserProfile({ user }: Props) {
+export default function UserProfile() {
+
+    const user: UserProfileType = {
+        id: 2,
+        name: "Maria Lopez",
+        email: "marialopez@gmail.com",
+        imageUrl: "https://images.unsplash.com/photo-1617817546276-80b86dd60151?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        bio: "Estudiante de matematicas en la universidad de Madrid.",
+        location: "Madrid",
+        skills: ["Matematicas", "Fisica", "Quimica"],
+        experience: ["Clases particulares de matematicas", "Clases particulares de fisica"],
+        education: ["Matematicas"],
+        meanRating: 4.5,
+        numberOfCompletedJobs: 10
+    }
 
     // hacer get del objeto data y asignar cada campo a user
-    useEffect(() => {
+    /* useEffect(() => {
         axios.get('/api/user').then((response: any) => {
             user = response.data;
             console.log(user);
         });
-    }, []);
+    }, []); */
 
     return (
-        <div id='user-profile' className="bg-gray p-5 w-full flex justify-center">
-            <div className="w-8/12 rounded-3xl bg-white h-[1200px] pr-6 pl-6 pt-6 pb-6">
+        <div id='user-profile' className="bg-gray2 p-5 w-full flex justify-center">
+            <div className="w-8/12 rounded-3xl bg-slate-100 min-h-[1200px] p-6">
                 {/* Nombre, foto, ubicación y descripción */}
                 <div className="flex items-center justify-center space-x-6 mb-3 mt-3 ml-3">
                     <img src={user.imageUrl} alt={user.name} className="w-32 h-32 rounded-full" />
@@ -70,7 +85,7 @@ export function UserProfile({ user }: Props) {
                     </div>
 
                     {/* Historial laboral, valoraciones y número de trabajos completados */}
-                    <div className="w-1/2 mt-5 pr-4 flex flex-col items-center bg-white rounded-2xl">
+                    <div className="w-1/2 mt-5 pr-4 flex flex-col items-center bg-slate-100 rounded-2xl">
                         {/* Historial */}
                         <div className="flex flex-col items-center bg-lightGray rounded-2xl px-4 py-4 mb-4">
                             <h2 className="text-xl font-bold">Historial laboral</h2>

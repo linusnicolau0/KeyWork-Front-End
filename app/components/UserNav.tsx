@@ -22,13 +22,17 @@ export async function UserNav ()
             <DropdownMenuContent align="end" className="w-[200px]">
                 <>
                     <DropdownMenuItem>
-                        <button type="submit" className="w-full text-start">
-                            Cerrar sesión
-                        </button>
+                        <Link href="/user-profile" className="w-full dark:text-black">Perfil</Link>
                     </DropdownMenuItem>
 
                     <DropdownMenuItem>
-                        <Link href="/reservas" className="w-full dark:text-black">Ajustes</Link>
+                        <Link href="/" className="w-full dark:text-black">Ajustes</Link>
+                    </DropdownMenuItem>
+
+                    <DropdownMenuItem>
+                        <button type="submit" className="w-full text-start">
+                            Cerrar sesión
+                        </button>
                     </DropdownMenuItem>
 
                 </>            

@@ -42,14 +42,14 @@ export function Navbar()
 
             <div className="ml-auto flex">
 
-                {/*La distribució dels botons es farà un cop estigui feta la base de dades i el sistema de login funcioni*/}
-
-                <Button className="bg-white mr-10 mt-1.5 hover:bg-[#b3b4b6] rounded-xl" asChild>
-                    {/*Canviar href per redirigir a la pagina de creació d'ofertes (pendent de creació)*/}
+                {/* Borrar això quan estigui el login funcionant */}
+                <Button className="bg-slate-100 mr-10 mt-1.5 hover:bg-[#b3b4b6] rounded-xl" asChild>
                     <Link href="/create-offer">
-                        <h1 className="text-black">Añadir oferta</h1> {/* TODO: Link with CreateOffer.tsx */}
+                        <h1 className="text-black">Añadir oferta</h1>
                     </Link>
                 </Button>
+                <UserNav />
+                {/* Fins aquí */}
 
                 {userAuth === null ? (
                     <>
@@ -57,19 +57,25 @@ export function Navbar()
                             <h1 className="text-white">hola</h1>
                         </div>
 
+                        <Button className="bg-slate-100 mr-10 mt-1.5 hover:bg-[#b3b4b6] rounded-xl" asChild>
+                            <Link href="/create-offer">
+                                <h1 className="text-black">Añadir oferta</h1>
+                            </Link>
+                        </Button>
+
                         {/*Foto de usuario*/}
-                        <UserNav /> {/* TODO: Link with UserProfile.tsx */}
+                        <UserNav />
 
                     </>
                 ) : (
                     <>
-                        <Button className="bg-white mr-10 mt-1.5 hover:bg-[#b3b4b6] rounded-xl">
+                        <Button className="bg-slate-100 mr-10 mt-1.5 hover:bg-[#b3b4b6] rounded-xl">
                             <Link href="/login">
                                 <h1 className="text-black">Iniciar Sesion</h1>
                             </Link>
                         </Button>
 
-                        <Button className="bg-white mr-6 mt-1.5 hover:bg-[#b3b4b6] rounded-xl">
+                        <Button className="bg-slate-100 mr-6 mt-1.5 hover:bg-[#b3b4b6] rounded-xl">
                             <Link href="/register">
                                 <h1 className="text-black">Registrarse</h1>
                             </Link>
