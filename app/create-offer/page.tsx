@@ -50,8 +50,6 @@ export default function CreateOffer() {
     function handleSubmit() {
         axios.post('/api/offers', offer).then((response: any) => {
             console.log(response);
-            // TODO: post all data to the server
-
         });
         // redirect to the landing/offers page
     }
@@ -128,7 +126,6 @@ export default function CreateOffer() {
                             onChange={handleChange}
                             placeholder="URL de la imagen"
                             className="w-3/4 py-2 mx-5 border border-gray-300 rounded-md bg-white"
-                            required
                         />
                     </div>
 

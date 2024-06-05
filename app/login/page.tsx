@@ -18,21 +18,18 @@ export default function Login() {
     }, []);
 
     function handleRegister() {
-        axios.get('/sanctum/csrf-cookie').then((response: any) => {
+        console.log(email);
+        console.log(password);
+        axios.post('/api/login', {
+            email: email,
+            password: password
+        })
+        .then((response: any) => {
             console.log(response);
-            console.log(email);
-            console.log(password);
-            axios.post('/api/login', {
-                email: email,
-                password: password
-            })
-            .then((response: any) => {
-                console.log(response);
-                window.location.href = '/';
-            })
-            .catch(error => {
-                console.log(error);
-            });
+            /* window.location.href = '/'; */
+        })
+        .catch(error => {
+            console.log(error);
         });
     }
     
