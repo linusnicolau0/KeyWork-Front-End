@@ -4,39 +4,56 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import axios from "../api/axios.js";
 import { useEffect, useState } from "react";
-import { redirect } from "next/navigation.js";
 
 export default function Login() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     
-    useEffect(() => {
-        axios.get('/api/offers').then((response: any) => {
-            const lista = response.data;
-        });
-    }, []);
+    /*useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            axios.get('/api/user', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            .then((response: any) => {
+                console.log(response.data);
+            })
+            .catch((error) => {
+                if (error.response && error.response.status === 401) {
+                    console.error("Unauthorized access - redirecting to login");
+                    window.location.href = '/login';
+                } else {
+                    console.error("Error fetching user data:", error);
+                }
+            });
+        } else {
+            console.error("No token found");
+            window.location.href = '/login';
+        }
+    }, []);*/
 
-    function handleRegister() {
-        console.log(email);
-        console.log(password);
+    const handleLogin = () => {
         axios.post('/api/login', {
             email: email,
             password: password
         })
-        .then((response: any) => {
-            console.log(response);
-            if(response.status == 200 && localStorage.getItem('token') == null) {
-                localStorage.setItem('token', response.data['token']);
-                const token = localStorage.getItem('token');
-                axios.defaults.headers.common = {'Authorization': `Bearer ${token}`}
+        .then((response) => {
+            if (response.status === 200) {
+                const token = response.data.token;
+                localStorage.setItem('token', token);
+                // Redirigir o hacer algo después del login exitoso
+                window.location.href = '/';
             }
-            window.location.href = '/';
         })
-        .catch(error => {
-            console.log(error);
+        .catch((error) => {
+            console.error("Error during login:", error);
         });
-    }
+    };
+    
+    
     
     return (
         <div className="mt-[120px] flex justify-center">
@@ -68,7 +85,7 @@ export default function Login() {
                     <h1 className="text-[#6765ff] text-xs font-bold">¿Olvidaste tu contraseña?</h1>
                 </div>
                 <div className="w-2/3 flex justify-center">
-                    <Button type="submit" onClick={handleRegister} className="bg-[#ff6725] text-black mt-6">
+                    <Button type="submit" onClick={handleLogin} className="bg-[#ff6725] text-black mt-6">
                         Iniciar sesión
                     </Button>
                 </div>
