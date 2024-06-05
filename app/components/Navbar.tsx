@@ -40,7 +40,7 @@ export function Navbar()
                 </Link>
 
             </div>
- 
+
             <div className="ml-auto flex">
 
                 {/*La distribució dels botons es farà un cop estigui feta la base de dades i el sistema de login funcioni*/}
@@ -48,7 +48,7 @@ export function Navbar()
                 <Button className="bg-white mr-10 mt-1.5 hover:bg-[#b3b4b6] rounded-xl" asChild>
                     {/*Canviar href per redirigir a la pagina de creació d'ofertes (pendent de creació)*/}
                     <Link href="/">
-                        <h1 className="text-black">Añadir oferta</h1>
+                        <h1 className="text-black">Añadir oferta</h1> {/* TODO: Link with CreateOffer.tsx */}
                     </Link>
                 </Button>
 
@@ -59,7 +59,7 @@ export function Navbar()
                         </div>
 
                         {/*Foto de usuario*/}
-                        <UserNav />
+                        <UserNav /> {/* TODO: Link with UserProfile.tsx */}
 
                     </>
                 ) : (

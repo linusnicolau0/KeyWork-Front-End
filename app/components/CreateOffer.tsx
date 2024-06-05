@@ -75,6 +75,7 @@ export function CreateOffer() {
                         required
                     />
                 </div>
+
                 {/* Fecha */}
                 <div className="flex mb-4 items-center justify-between">
                     <label className="block text-white text-md font-semibold ml-5">Fecha:</label>
@@ -87,6 +88,7 @@ export function CreateOffer() {
                         required
                     />
                 </div>
+
                 {/* Salario por hora */}
                 <div className="flex mb-4 items-center justify-between">
                     <label className="block text-white text-md font-semibold ml-5">Salario por hora:</label>
@@ -99,6 +101,7 @@ export function CreateOffer() {
                         required
                     />
                 </div>
+
                 {/* Horas de trabajo */}
                 <div className="flex mb-4 items-center justify-between">
                     <label className="block text-white text-md font-semibold ml-5">Horas de trabajo:</label>
@@ -111,6 +114,7 @@ export function CreateOffer() {
                         required
                     />
                 </div>
+
                 {/* Imagen de la oferta de trabajo */}
                 <div className="flex mb-4 items-center justify-between">
                     <label className="block text-white text-md font-semibold ml-5">Imagen de la oferta:</label>
@@ -124,6 +128,7 @@ export function CreateOffer() {
                         required
                     />
                 </div>
+
                 {/* Descripción */}
                 <div className="flex mb-4 items-center justify-between">
                     <label className="block text-white text-md font-semibold ml-5">Descripción:</label>
@@ -137,6 +142,7 @@ export function CreateOffer() {
                         required
                     />
                 </div>
+
                 {/* Requisitos */}
                 <div className="flex mb-4 justify-between">
                     <label className="block text-white text-md font-semibold ml-5">Requisitos:</label>
@@ -157,6 +163,7 @@ export function CreateOffer() {
                         </Button>
                     </div>
                 </div>
+
                 <div className="flex mb-4 justify-end p-4">
                     <Button type="submit" className="bg-green-500 text-white px-4 py-2 rounded-lg">
                         Crear Oferta
