@@ -3,7 +3,6 @@ import { Carrousel } from "./components/Carrousel";
 import { CreateOffer } from "./components/CreateOffer";
 import { Footer } from "./components/Footer";
 import { Offers } from "./components/Offers";
-
 import { UserProfile } from "./components/UserProfile";
 
 const listOfOffersExample = [
