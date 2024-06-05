@@ -18,7 +18,6 @@ export function Navbar()
             userAuth = response.data;
             console.log(userAuth);
         });
-
     }, []);
 
 
@@ -47,7 +46,7 @@ export function Navbar()
 
                 <Button className="bg-white mr-10 mt-1.5 hover:bg-[#b3b4b6] rounded-xl" asChild>
                     {/*Canviar href per redirigir a la pagina de creació d'ofertes (pendent de creació)*/}
-                    <Link href="/">
+                    <Link href="/create-offer">
                         <h1 className="text-black">Añadir oferta</h1> {/* TODO: Link with CreateOffer.tsx */}
                     </Link>
                 </Button>

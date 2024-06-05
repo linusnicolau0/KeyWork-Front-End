@@ -1,18 +1,19 @@
 "use client";
 
 import { useState } from 'react';
-//import { useRouter } from 'next/router';
+
+import axios from '../api/axios.js';
 
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { OfferType } from '../types';
+import { OfferType } from '../types.js';
 
 type Props = {
     
 }
 
-export function CreateOffer() {
+export default function CreateOffer() {
     const [offer, setOffer] = useState<OfferType>({
         id: 0, // Esto puede ser generado automaticamente en el servidor
         title: "",
@@ -25,8 +26,6 @@ export function CreateOffer() {
         companyLogo: "",
         requirements: []
     });
-
-    //const router = useRouter();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -46,13 +45,16 @@ export function CreateOffer() {
         setOffer({ ...offer, requirements: [...offer.requirements, ''] });
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        // TODO: Aquí deberías enviar los datos a tu servidor o API
-        console.log(offer);
-        // Navegar de vuelta a la página de ofertas después de la creación
-        //router.push('/ofertas');
-    };
+
+
+    function handleSubmit() {
+        axios.post('/api/offers', offer).then((response: any) => {
+            console.log(response);
+            // TODO: post all data to the server
+
+        });
+        // redirect to the landing/offers page
+    }
 
 
     return (

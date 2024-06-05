@@ -86,7 +86,7 @@ export function UserProfile({ user }: Props) {
                                 </div>
                             ))} */}
                             {/* Por defecto quiero que se muestre "Aun no ha realizado trabajos en KeyWork" */}
-                            <p className="text-muted-foreground text-sm">Aún no ha realizado trabajos en KeyWork...</p>
+                            <p className="p-4 text-muted-foreground text-sm">Aún no ha realizado trabajos en KeyWork...</p>
                         </div>
                     </div>
                 </div>
