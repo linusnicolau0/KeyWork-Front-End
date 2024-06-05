@@ -133,7 +133,8 @@ export default function Home() {
   const [offers, setOffers] = useState<OfferType[]>([]);
   useEffect(() => {
     axios.get('/api/offers').then((response: any) => {
-      setOffers(response.data); /* TODO: */
+      console.log(response, 200);
+      //setOffers(response.data); /* TODO: */
     });
   }, []);
 

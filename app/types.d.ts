@@ -15,11 +15,11 @@ export type UserProfileType = {
     id: number;
     name: string;
     email: string;
-    imageUrl: string;
-    bio: string;
+    image_url: string;
+    biography: string;
     location: string;
     skills: string[];
-    experience: string[];
+    experiences: string[];
     education: string[];
     meanRating: number; // es genera al frontend
     numberOfCompletedJobs: number; // es genera al frontend
