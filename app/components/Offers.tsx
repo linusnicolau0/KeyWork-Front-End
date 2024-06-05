@@ -8,6 +8,8 @@ import { Dialog, DialogOverlay, DialogContent } from '@/components/ui/dialog';
 import { Button } from "@/components/ui/button";
 import { cn } from '@/lib/utils';
 
+import { FaStar } from "react-icons/fa";
+
 import { OfferType } from '../types';
 
 type Props = {
@@ -36,11 +38,11 @@ export function Offers ({ offers }: Props) {
                         <img src={offer.imageUrl} alt={offer.title} className="w-full h-40 object-cover" />
                         <div className="p-3 bg-black text-white flex items-center">
                             <div className="w-4/5">
-                                <h2 className="truncate text-lg font-semibold">{offer.title}</h2>
-                                <p className="text-sm text-gray-400">{offer.date}</p>
+                                <h2 className="truncate text-lg font-bold text-slate-50">{offer.title}</h2>
+                                <p className="text-sm font-semibold text-slate-50">{offer.date}</p>
                             </div>
                             <div className="ml-auto">
-                                <p className="text-xl font-bold items-end">{offer.salary * offer.hours}€</p>
+                                <p className="text-xl font-bold items-end text-slate-50">{offer.salary * offer.hours}€</p>
                             </div>
                         </div>
                     </Card>
@@ -52,7 +54,7 @@ export function Offers ({ offers }: Props) {
                 <Dialog open={Boolean(selectedOffer)} onOpenChange={closeDialog}>
                     <DialogOverlay className="fixed inset-0 bg-black bg-opacity-50" />
                     <DialogContent className={cn(
-                        "bg-white rounded-lg overflow-hidden shadow-lg",
+                        "bg-slate-50 rounded-lg overflow-hidden shadow-lg",
                         "max-w-3xl w-full",
                         "max-h-[calc(100vh-2rem)] overflow-y-auto no-scrollbar"
                     )}>
@@ -70,8 +72,11 @@ export function Offers ({ offers }: Props) {
                                         {/* Imagen empresa, nombre y rating */}
                                         <div className="flex items-center text-center">
                                             <div className="flex flex-col">
-                                                <h3 className="text-md font-semibold">{selectedOffer.companyName}</h3>
-                                                <p className="">Rating: 5/5</p>
+                                                <h3 className="text-md font-semibold mx-2">{selectedOffer.companyName}</h3>
+                                                <div id='rating' className="flex items-center justify-center">
+                                                    <p>Rating: 5</p>
+                                                    <FaStar className="ml-0.5 text-yellow-400"/>
+                                                </div>
                                             </div>
                                             <img src={selectedOffer.companyLogo} alt={selectedOffer.companyName} className="w-20 h-20 rounded-full"/>
                                         </div>
