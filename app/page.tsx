@@ -129,13 +129,19 @@ const listOfUsersExample = [
 
 export default function Home() {
 
-  /* Quiero coger las ofertas de mi servidor y guardarlas en una lista */
+  // Define una variable de estado para almacenar las ofertas
   const [offers, setOffers] = useState<OfferType[]>([]);
+
+  // Realiza la llamada a la API y actualiza las ofertas al montar el componente
   useEffect(() => {
-    axios.get('/api/offers').then((response: any) => {
-      console.log(response, 200);
-      //setOffers(response.data); /* TODO: */
-    });
+      axios.get('/api/offers')
+          .then((response: any) => {
+              console.log(response.data); // Asegúrate de que los datos están en el formato correcto
+              setOffers(response.data); // Asumiendo que la respuesta de la API tiene esta estructura
+          })
+          .catch((error: any) => {
+              console.error("There was an error fetching the offers!", error);
+          });
   }, []);
 
   return (
@@ -151,7 +157,7 @@ export default function Home() {
         <Separator className="mt-6 bg-gray2"/>
         
         <div id="ofertas" className="mt-6 h-screen overflow-y-auto no-scrollbar">
-          <Offers offers={listOfOffersExample} />
+          <Offers offers={offers} />
         </div>
 
         <Separator className="mt-6 bg-gray2"/>

@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { OfferType } from '../types.js';
+import { log } from 'console';
+import { FaWindows } from 'react-icons/fa';
 
 type Props = {
     
@@ -18,10 +20,10 @@ export default function CreateOffer() {
         id: 0, // Esto puede ser generado automaticamente en el servidor
         title: "",
         date: "",
-        salary: 0,
+        salary: "0",
         imageUrl: "",
         description: "",
-        hours: 0,
+        hours: "0",
         companyName: "",
         companyLogo: "",
         requirements: []
@@ -30,6 +32,11 @@ export default function CreateOffer() {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setOffer({
+            ...offer,
+            [name]: value,
+        });
+
+        console.log('new offer', {
             ...offer,
             [name]: value,
         });
@@ -43,20 +50,46 @@ export default function CreateOffer() {
 
     const addRequirement = () => {
         setOffer({ ...offer, requirements: [...offer.requirements, ''] });
+
+        console.log('new offer', {
+            ...offer,
+            requirements: [...offer.requirements, ''],
+        });
     };
+    
     /* Eliminamos solo el ultimo requirement */
     const removeRequirement = () => {
         setOffer({ ...offer, requirements: offer.requirements.slice(0, -1) });
     };
 
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
 
+        try {
+            const formData = new FormData();
+            formData.append('title', offer.title);
+            formData.append('date', offer.date);
+            formData.append('salary', offer.salary.toString());
+            formData.append('hours', offer.hours.toString());
+            formData.append('description', offer.description);
+            formData.append('requirements', JSON.stringify(offer.requirements));
+            if (offer.imageUrl) {
+                formData.append('image', offer.imageUrl);
+            }
 
-    function handleSubmit() {
-        axios.post('/api/offers', offer).then((response: any) => {
-            console.log(response);
-        });
-        // redirect to the landing/offers page
-    }
+            const response = await axios.post('/api/offers/store', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                },
+            });
+
+            window.location.href = '/';
+            // Redirigir a la página de ofertas o hacer algo después de la creación
+        } catch (error) {
+            console.error('Error al crear la oferta:', error);
+        }
+    };
 
 
     return (

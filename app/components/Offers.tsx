@@ -1,16 +1,8 @@
-"use client";
-
-import { useState } from 'react';
-
-import { Card } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
-import { Dialog, DialogOverlay, DialogContent } from '@/components/ui/dialog';
-import { Button } from "@/components/ui/button";
-import { cn } from '@/lib/utils';
-
+import { AwaitedReactNode, JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal, useState } from 'react';
+import { Dialog, DialogOverlay, DialogContent } from '../../components/ui/dialog';
+import { Button } from "../../components/ui/button";
 import { FaStar } from "react-icons/fa";
-
-import { OfferType } from '../types';
+import { OfferType } from "../types";
 
 type Props = {
     offers: OfferType[];
@@ -27,25 +19,26 @@ export function Offers ({ offers }: Props) {
         setSelectedOffer(null);
     };
 
+    console.log(offers);
+
     return (
-        <div id="seccion-ofertas" className={cn("flex justify-between",
-                                                "gap-6",
-                                                "grid lg:grid-cols-3 sm:grid-cols-2"
-                                            )}>
-            {offers.map((offer) => (
+        <div className="flex justify-between gap-6 grid lg:grid-cols-3 sm:grid-cols-2">
+            
+            {Object.values(offers).map((offer) => (
+                console.log(offer),
                 <div key={offer.id} onClick={() => openDialog(offer)}>
-                    <Card className="w-80 rounded-lg overflow-hidden shadow-lg border-gray cursor-pointer">
-                        <img src={offer.imageUrl} alt={offer.title} className="w-full h-40 object-cover" />
+                    <div className="w-80 rounded-lg overflow-hidden shadow-lg border-gray cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1566670735914-b2038696981d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt={offer.title} className="w-full h-40 object-cover" />
                         <div className="p-3 bg-black text-white flex items-center">
                             <div className="w-4/5">
                                 <h2 className="truncate text-lg font-bold text-slate-50">{offer.title}</h2>
                                 <p className="text-sm font-semibold text-slate-50">{offer.date}</p>
                             </div>
                             <div className="ml-auto">
-                                <p className="text-xl font-bold items-end text-slate-50">{offer.salary * offer.hours}€</p>
+                                <p className="text-xl font-bold items-end text-slate-50">{Number(offer.salary) * Number(offer.hours)}€</p>
                             </div>
                         </div>
-                    </Card>
+                    </div>
                 </div>
             ))}
 
@@ -53,11 +46,7 @@ export function Offers ({ offers }: Props) {
             {selectedOffer && (
                 <Dialog open={Boolean(selectedOffer)} onOpenChange={closeDialog}>
                     <DialogOverlay className="fixed inset-0 bg-black bg-opacity-50" />
-                    <DialogContent className={cn(
-                        "bg-slate-50 rounded-lg overflow-hidden shadow-lg",
-                        "max-w-3xl w-full",
-                        "max-h-[calc(100vh-2rem)] overflow-y-auto no-scrollbar"
-                    )}>
+                    <DialogContent className="bg-slate-50 rounded-lg overflow-hidden shadow-lg max-w-3xl w-full max-h-[calc(100vh-2rem)] overflow-y-auto no-scrollbar">
                         <div>
                             {/* Titulo y fecha */}
                             <div className="flex justify-between items-center p-4 border-b">
@@ -94,7 +83,7 @@ export function Offers ({ offers }: Props) {
                                             </div>
                                             <div className="h-1/4 flex justify-between py-2">
                                                 <p className="text-2xl font-bold">Total: </p>
-                                                <p className="text-2xl font-bold">{selectedOffer.salary * selectedOffer.hours}€</p>
+                                                <p className="text-2xl font-bold">{Number(selectedOffer.salary) * Number(selectedOffer.hours)}€</p>
                                             </div>
                                         </div>
                                     </div>
@@ -110,7 +99,7 @@ export function Offers ({ offers }: Props) {
                                     <div className="w-1/3">
                                         <h3 className="text-lg font-bold mb-2">Requisitos</h3>
                                         <ul className="list-disc list-inside">
-                                            {selectedOffer.requirements.map((req, index) => (
+                                            {selectedOffer.requirements.map((req: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined, index: Key | null | undefined) => (
                                                 <li key={index}>{req}</li>
                                             ))}
                                         </ul>
