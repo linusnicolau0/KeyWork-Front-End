@@ -1,8 +1,43 @@
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuItem, DropdownMenuContent } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
+import axios from "../api/axios.js";
+import { useEffect, useState } from "react";
 
 export function UserNav ()
 {
+
+    const [token, setToken] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const token = localStorage.getItem("token");
+            setToken(token);
+        }
+    }, []);
+
+    const handleLogout = () => {
+        if (token) {
+            console.log(token)
+
+            const config = {
+                headers: {Authorization: `Bearer ${token}`}
+            }
+
+            axios.post('/api/logout', {}, config)
+                .then((response) => {
+                    if (response.status === 200) {
+                        localStorage.removeItem('token');
+                        setToken(null);  // Actualiza el estado del token
+                        window.location.href = '/';
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error during logout:', error);
+                }
+            );
+        }
+    };
+
     return (
         <DropdownMenu>
             <DropdownMenuTrigger>
@@ -30,7 +65,7 @@ export function UserNav ()
                     </DropdownMenuItem>
 
                     <DropdownMenuItem>
-                        <button type="submit" className="w-full text-start">
+                        <button type="submit" className="w-full text-start" onClick={handleLogout}>
                             Cerrar sesión
                         </button>
                     </DropdownMenuItem>
