@@ -55,7 +55,7 @@ export default function UserProfile() {
     return (
         <div id='user-profile' className="bg-gray2 p-5 w-full flex justify-center">
             <div className="w-8/12 rounded-3xl bg-slate-100 min-h-[1200px] p-6">
-            <h1 className="text-4xl font-bold mr-5">{user.name}</h1> {/** This line should be removed */}
+            <h1 className="text-4xl font-bold mr-5"></h1> {/** This line should be removed */}
                 {/* Nombre, foto, ubicación y descripción */}
                 <div className="flex items-center justify-center space-x-6 mb-3 mt-3 ml-3">
                     <img src={user.image_url} alt={user.name} className="w-32 h-32 rounded-full" />
