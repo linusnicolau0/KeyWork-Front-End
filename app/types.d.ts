@@ -2,10 +2,10 @@ export type OfferType = {
     id: number;
     title: string;
     date: string;
-    salary: number; // per hour
+    salary: string; // per hour
     imageUrl: string; //generar desde frontend
     description: string;
-    hours: number;
+    hours: string;
     companyName: string; //generar desde frontend
     companyLogo: string; //generar desde frontend
     requirements: string[];
