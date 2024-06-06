@@ -18,7 +18,8 @@ export type UserProfileType = {
     image_url: string;
     biography: string;
     location: string;
-    skills: string[];
+    skills: string[]; // as a string array
+    // skills: {id: number; name: string;}[]; as an object
     experiences: string[];
     education: string[];
     meanRating: number; // es genera al frontend
