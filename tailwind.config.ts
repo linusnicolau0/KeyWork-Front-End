@@ -56,6 +56,7 @@ const config = {
         "gray2": '#212121',
         "lightGray": '#d1d1d1',
         'lightGray2': '#bfbfbf',
+        "lightGray3": '#292929',
       },
       borderRadius: {
         lg: "var(--radius)",
