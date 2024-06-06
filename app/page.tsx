@@ -149,18 +149,18 @@ export default function Home() {
 
       <Carrousel />
 
-      <div className="bg-gray h-[180px] mx-20 content-center">
+      <div className="bg-lightGray3 h-[180px] content-center">
 
-        <h1 className="text-white font-bold text-4xl mt-6" style={{ letterSpacing: '0.0em' }}>
+        <h1 className="text-white font-bold mx-20 text-4xl mt-10" style={{ letterSpacing: '0.0em' }}>
           Ofertas destacadas
         </h1>
-        <Separator className="mt-6 bg-gray2"/>
+        <Separator className="mt-9 mx-20 bg-gray2"/>
         
-        <div id="ofertas" className="mt-6 h-screen overflow-y-auto no-scrollbar">
+        <div id="ofertas" className="mt-6 mx-20 h-screen overflow-y-auto no-scrollbar flex justify-center">
           <Offers offers={offers} />
         </div>
 
-        <Separator className="mt-6 bg-gray2"/>
+        <Separator className="mt-6 mx-20 bg-gray2"/>
 
         <Footer />
 

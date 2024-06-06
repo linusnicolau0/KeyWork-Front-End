@@ -93,15 +93,15 @@ export default function CreateOffer() {
 
 
     return (
-        <div id='create-offer' className="bg-gray2 p-5 w-full flex justify-center">
-            <div className="w-8/12 rounded-3xl bg-slate-200 p-6">
+        <div id='create-offer' className="bg-lightGray3 p-5 h-full w-full mt-10 flex justify-center">
+            <div className="w-6/12 rounded-3xl bg-slate-200 p-6 flex-col justify-center">
                 <h1 className="text-4xl text-center font-bold mt-2 mb-8">Crear una oferta de trabajo</h1>
                 <form
                     onSubmit={handleSubmit} 
-                    className="w-11/12"
+                    className="w-10/12 align-center flex-col justify-center mx-auto mt-4"
                 >
                     {/* Titulo */}
-                    <div className="flex mb-4 items-center justify-between">
+                    <div className="flex mb-4 items-center justify-between mb-6">
                         <label className="w-1/4 block text-md font-semibold ml-5">Título:</label>
                         <Input 
                             type="text" 
@@ -115,7 +115,7 @@ export default function CreateOffer() {
                     </div>
 
                     {/* Fecha */}
-                    <div className="flex mb-4 items-center justify-between">
+                    <div className="flex mb-4 items-center justify-between mb-6">
                         <label className="w-1/4 block text-md font-semibold ml-5">Fecha:</label>
                         <Input 
                             type="date" 
@@ -128,7 +128,7 @@ export default function CreateOffer() {
                     </div>
 
                     {/* Salario por hora */}
-                    <div className="flex mb-4 items-center justify-between">
+                    <div className="flex mb-4 items-center justify-between mb-6">
                         <label className="w-1/4 block text-md font-semibold ml-5">Salario por hora:</label>
                         <Input 
                             type="number" 
@@ -141,7 +141,7 @@ export default function CreateOffer() {
                     </div>
 
                     {/* Horas de trabajo */}
-                    <div className="flex mb-4 items-center justify-between">
+                    <div className="flex mb-4 items-center justify-between mb-6">
                         <label className="w-1/4 block text-md font-semibold ml-5">Horas de trabajo:</label>
                         <Input 
                             type="number" 
@@ -154,7 +154,7 @@ export default function CreateOffer() {
                     </div>
 
                     {/* Imagen de la oferta de trabajo */}
-                    <div className="flex mb-4 items-center justify-between">
+                    <div className="flex mb-4 items-center justify-between mb-6">
                         <label className="w-1/4 block text-md font-semibold ml-5">Imagen de la oferta:</label>
                         <Input 
                             type="file" 
@@ -167,7 +167,7 @@ export default function CreateOffer() {
                     </div>
 
                     {/* Descripción */}
-                    <div className="flex mb-4 items-center justify-between">
+                    <div className="flex mb-4 items-center justify-between mb-6">
                         <label className="w-1/4 block text-md font-semibold ml-5">Descripción:</label>
                         <Input 
                             type="text"
@@ -191,15 +191,15 @@ export default function CreateOffer() {
                                     value={req}
                                     onChange={(e) => handleArrayChange(index, e.target.value)}
                                     placeholder={`Requisito ${index + 1}`}
-                                    className="mr-auto py-2 my-1 border border-gray-300 rounded-md bg-white"
+                                    className="mr-auto py-2 my-1 border border-gray-300 rounded-md bg-white mb-5"
                                     required
                                 />
                             ))}
                             <div className="flex w-60 items-center justify-between">
-                                <Button onClick={addRequirement} className="bg-green-600 text-white px-4 py-2 rounded-lg">
+                                <Button onClick={addRequirement} className="bg-green-600 text-white px-4 py-2 rounded-lg mt-4">
                                     Añadir requisito
                                 </Button>
-                                <Button onClick={removeRequirement} className="bg-red-600 text-white px-4 py-2 rounded-lg ml-4">
+                                <Button onClick={removeRequirement} className="bg-red-600 text-white px-4 py-2 rounded-lg ml-4 mt-4">
                                     Eliminar requisito
                                 </Button>
                             </div>

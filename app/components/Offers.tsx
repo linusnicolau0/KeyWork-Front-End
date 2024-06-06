@@ -38,7 +38,7 @@ export function Offers ({ offers }: Props) {
     console.log(offers);
 
     return (
-        <div className="flex justify-between gap-6 grid lg:grid-cols-3 sm:grid-cols-2">
+        <div className="flex justify-between gap-x-60 gap-y-10 mt-6 grid lg:grid-cols-3 sm:grid-cols-2 ">
                 {Object.values(offers).map((offer) => (
                     console.log(offer),
                     <div key={offer.id} onClick={() => openDialog(offer)}>
