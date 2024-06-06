@@ -135,9 +135,9 @@ export default function Home() {
   // Realiza la llamada a la API y actualiza las ofertas al montar el componente
   useEffect(() => {
       axios.get('/api/offers')
-          .then((response: any) => {
-              console.log(response.data); // Asegúrate de que los datos están en el formato correcto
-              setOffers(response.data); // Asumiendo que la respuesta de la API tiene esta estructura
+          .then((response: any) => {  
+              setOffers(response.data.offers.data); // Asumiendo que la respuesta de la API tiene esta estructura
+              console.log(offers)
           })
           .catch((error: any) => {
               console.error("There was an error fetching the offers!", error);
