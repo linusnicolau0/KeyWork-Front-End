@@ -44,6 +44,10 @@ export default function CreateOffer() {
     const addRequirement = () => {
         setOffer({ ...offer, requirements: [...offer.requirements, ''] });
     };
+    /* Eliminamos solo el ultimo requirement */
+    const removeRequirement = () => {
+        setOffer({ ...offer, requirements: offer.requirements.slice(0, -1) });
+    };
 
 
 
@@ -158,14 +162,19 @@ export default function CreateOffer() {
                                     required
                                 />
                             ))}
-                            <Button onClick={addRequirement} className="bg-[#ff6725] text-white px-4 py-2 rounded-lg">
-                                Añadir requisito
-                            </Button>
+                            <div className="flex w-60 items-center justify-between">
+                                <Button onClick={addRequirement} className="bg-green-600 text-white px-4 py-2 rounded-lg">
+                                    Añadir requisito
+                                </Button>
+                                <Button onClick={removeRequirement} className="bg-red-600 text-white px-4 py-2 rounded-lg ml-4">
+                                    Eliminar requisito
+                                </Button>
+                            </div>
                         </div>
                     </div>
 
                     <div className="flex mb-4 justify-end p-4">
-                        <Button type="submit" className="bg-green-500 text-white px-4 py-2 rounded-lg">
+                        <Button type="submit" className="bg-[#ff6725] text-white px-4 py-2 rounded-lg">
                             Crear Oferta
                         </Button>
                     </div>
