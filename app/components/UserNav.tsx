@@ -1,7 +1,7 @@
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuItem, DropdownMenuContent } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
 
-export async function UserNav ()
+export function UserNav ()
 {
     return (
         <DropdownMenu>
